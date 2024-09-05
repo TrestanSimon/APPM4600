@@ -26,6 +26,7 @@ def driver():
     return
 
 
+# Custom dot product code
 def dot_product(x, y):
     return np.sum(x * y)
 
