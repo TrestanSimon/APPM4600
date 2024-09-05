@@ -3,6 +3,7 @@ import time
 
 
 def driver():
+    # Generate some random vectors (x and y) and matrices (z and w)
     x = np.random.rand(4)
     y = np.random.rand(4)
     z = np.random.rand(4, 3)
