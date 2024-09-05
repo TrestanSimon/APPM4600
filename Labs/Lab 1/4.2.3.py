@@ -31,6 +31,7 @@ def dot_product(x, y):
     return np.sum(x * y)
 
 
+# Custom matrix multiplication code
 def matrix_multiplication(x, y):
     n, m = x.shape[0], y.shape[1]
     product = np.empty((n, m))
