@@ -8,6 +8,7 @@ def driver():
     z = np.random.rand(4, 3)
     w = np.random.rand(3, 2)
 
+    # Time performance of custom dot product code
     t0 = time.perf_counter()
     product_1 = dot_product(x, y)
     t1 = time.perf_counter()
