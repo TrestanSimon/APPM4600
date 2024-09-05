@@ -17,6 +17,7 @@ def driver():
     print(f"the product is : {product_1} taking {t1 - t0} s")
     print(f"the product is : {product_2} taking {t2 - t1} s")
 
+    # Time performance of custom matrix multiplication code
     t0 = time.perf_counter()
     product_1 = matrix_multiplication(z, w)
     t1 = time.perf_counter()
