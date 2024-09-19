@@ -34,20 +34,20 @@ def fixedpt(f, x0, tol, n_max):
     tol = stopping tolerance
     """
 
-    all_x = np.ones(n_max) * np.nan
+    all_x = []
 
     i = 0
     while i < n_max:
         x1 = f(x0)
-        all_x[i] = x1
+        all_x.append(x1)
         i += 1
         if abs(x1 - x0) < tol:
             ier = 0
-            return x1, all_x, ier
+            return x1, np.array(all_x), ier
         x0 = x1
 
     ier = 1
-    return x1, all_x, ier
+    return x1, np.array(all_x), ier
 
 
 # driver()
