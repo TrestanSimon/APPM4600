@@ -14,14 +14,14 @@ def driver():
 
     # test f1 '''
     x0 = 0.0
-    [xstar, ier] = fixedpt(f1, x0, tol, n_max)
+    [xstar, x_all, ier] = fixedpt(f1, x0, tol, n_max)
     print('the approximate fixed point is:', xstar)
     print('f1(xstar):', f1(xstar))
     print('Error message reads:', ier)
 
     # test f2 '''
     x0 = 0.0
-    [xstar, ier] = fixedpt(f2, x0, tol, n_max)
+    [xstar, x_all, ier] = fixedpt(f2, x0, tol, n_max)
     print('the approximate fixed point is:', xstar)
     print('f2(xstar):', f2(xstar))
     print('Error message reads:', ier)
@@ -34,20 +34,20 @@ def fixedpt(f, x0, tol, n_max):
     tol = stopping tolerance
     """
 
-    all_x = np.ones((n_max, 1)) * np.nan
+    all_x = np.ones(n_max) * np.nan
 
     i = 0
     while i < n_max:
         x1 = f(x0)
-        all_x[[i]] = x1
+        all_x[i] = x1
         i += 1
         if abs(x1 - x0) < tol:
             ier = 0
-            return all_x, ier
+            return x1, all_x, ier
         x0 = x1
 
     ier = 1
-    return all_x, ier
+    return x1, all_x, ier
 
 
 # driver()
