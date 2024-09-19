@@ -22,8 +22,10 @@ n_max = 100
 tol = 1e-10
 
 [p, x_all, ier] = fixedpt(g, p0, tol, n_max)
-print(f"Fixed point method took {len(x_all)} iterations.")
+print(f"Fixed point method took {len(x_all)-1} iterations.")
 aitken = aitken_x(x_all, tol, n_max)
-print(f"Aitken method took {len(aitken)} iterations.")
-order = order_of_convergence(pstar, aitken)
-print(f"Aitken's order of convergence was {order}.")
+print(f"Aitken method took {len(aitken)-1} iterations.")
+order_fixed = order_of_convergence(pstar, x_all)
+print(f"Fixed point method's order of convergence was {order_fixed}")
+order_aitken = order_of_convergence(pstar, aitken)
+print(f"Aitken's order of convergence was {order_aitken}.")
