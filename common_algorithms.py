@@ -3,26 +3,25 @@ def bisection(f, a, b, tol, n_max=1000):
     if f(a) * f(b) > 0:
         raise Exception("a and b are the same sign")
 
+    midpoint = []
     for i in range(n_max):
-        midpoint = (a + b) / 2.
-
-        if f(a) * f(midpoint) > 0:
-            a = midpoint
+        midpoint.append((a + b) / 2.)
+        if f(a) * f(midpoint[i]) > 0:
+            a = midpoint[i]
         else:
-            b = midpoint
+            b = midpoint[i]
         if abs(a - b) <= tol:
-            return midpoint, i+1
+            return midpoint
 
     raise Exception("Number of iterations exceeded n_max")
 
 
 def fixedpt(f, p0, tol, n_max):
+    p = [p0]
     for i in range(n_max):
-        p1 = f(p0)
-        if abs(p1 - p0) < tol:
-            return p1
-        else:
-            p0 = p1
+        p.append(f(p[i]))
+        if abs(p[i+1] - p[i]) < tol:
+            return p
 
     raise Exception("Number of iterations exceeded n_max")
 
