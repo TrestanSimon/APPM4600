@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from exercise_1_constants import *
+from problem_1_constants import *
 
 
 x_arr = np.linspace(0, x_bar, 100)

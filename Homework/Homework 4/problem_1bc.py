@@ -1,5 +1,5 @@
 from common_algorithms import bisection, newton
-from exercise_1_constants import *
+from problem_1_constants import *
 
 
 bi = bisection(f, 0, x_bar, tol, 1000)
