@@ -1,3 +1,5 @@
+import numpy as np
+
 
 def bisection(f, a, b, tol, n_max=1000):
     if f(a) * f(b) > 0:
@@ -30,3 +32,8 @@ def newton(f, df, p0, tol, n_max):
     def g(x):
         return x - f(x) / df(x)
     return fixedpt(g, p0, tol, n_max)
+
+
+def order_of_convergence(p, phat):
+    return (np.log(np.abs(phat[3] - p) / np.abs(phat[2] - p)) /
+            np.log(np.abs(phat[2] - p) / np.abs(phat[1] - p)))
