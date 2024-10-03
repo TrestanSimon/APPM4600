@@ -2,7 +2,7 @@ import numpy as np
 np.set_printoptions(precision=16)
 
 
-def fixedpt_nd(F, A_inv, x0, tol, n_max):
+def lazy_newton(F, A_inv, x0, tol, n_max):
     x = [x0]
     for i in range(n_max):
         y = A_inv @ F(x[i])
@@ -25,7 +25,7 @@ A_inv = np.array([
 ])
 x0 = [1, 1]
 tol = 1e-16
-fp = fixedpt_nd(F, A_inv, x0, tol, 100)
+fp = lazy_newton(F, A_inv, x0, tol, 100)
 
 x = fp[-1]
 print(f"(x, y) = ({x[0]}, {x[1]})")
